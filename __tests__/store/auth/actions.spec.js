@@ -23,7 +23,7 @@ describe('Actions', () => {
 
     beforeEach(async () => {
       mock
-        .onPost('/v1/auth/users', {
+        .onPost('/auth/users', {
           user: {
             email: 'example@example.com',
             password: 'password',
@@ -62,7 +62,7 @@ describe('Actions', () => {
 
     beforeEach(async () => {
       mock
-        .onPut('/v1/auth/user', {
+        .onPut('/auth/user', {
           user: {
             email: 'changed@example.com',
             currentPassword: 'password',
@@ -93,7 +93,7 @@ describe('Actions', () => {
   describe('when dispatch changePassword', () => {
     beforeEach(async () => {
       mock
-        .onPut('/v1/auth/user', {
+        .onPut('/auth/user', {
           user: {
             currentPassword: 'currentPassword',
             password: 'password',
@@ -119,7 +119,7 @@ describe('Actions', () => {
   describe('when dispatch sendPasswordResetEmail', () => {
     beforeEach(async () => {
       mock
-        .onPost('/v1/auth/password_reset/mails', {
+        .onPost('/auth/password_reset/mails', {
           user: {
             email: 'example@example.com',
           },
@@ -138,7 +138,7 @@ describe('Actions', () => {
   describe('when dispatch resetPassword', () => {
     beforeEach(async () => {
       mock
-        .onPut('/v1/auth/password_reset', {
+        .onPut('/auth/password_reset', {
           user: {
             token: 'passwordResetToken',
             password: 'password',
@@ -162,7 +162,7 @@ describe('Actions', () => {
     const commit = jest.fn();
 
     beforeEach(async () => {
-      mock.onDelete('/v1/auth/auth_token').replyOnce(200);
+      mock.onDelete('/auth/auth_token').replyOnce(200);
       await actions.logout({ commit });
     });
 
@@ -180,7 +180,7 @@ describe('Actions', () => {
 
     beforeEach(async () => {
       mock
-        .onDelete('/v1/auth/user', {
+        .onDelete('/auth/user', {
           user: {
             currentPassword: 'currentPassword',
           },

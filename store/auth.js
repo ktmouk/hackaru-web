@@ -12,7 +12,7 @@ export const actions = {
   async login({ commit }, { email, password }) {
     try {
       const res = await this.$api.request({
-        url: '/v1/auth/auth_tokens',
+        url: '/auth/auth_tokens',
         method: 'post',
         withCredentials: true,
         data: {
@@ -31,7 +31,7 @@ export const actions = {
   async signUp({ commit }, { email, password, passwordConfirmation, locale }) {
     try {
       const res = await this.$api.request({
-        url: '/v1/auth/users',
+        url: '/auth/users',
         method: 'post',
         withCredentials: true,
         data: {
@@ -53,7 +53,7 @@ export const actions = {
   async changeEmail({ commit }, { email, currentPassword }) {
     try {
       const res = await this.$api.request({
-        url: `/v1/auth/user`,
+        url: `/auth/user`,
         withCredentials: true,
         method: 'put',
         data: {
@@ -72,7 +72,7 @@ export const actions = {
   async changePassword(_, { password, passwordConfirmation, currentPassword }) {
     try {
       await this.$api.request({
-        url: `/v1/auth/user`,
+        url: `/auth/user`,
         method: 'put',
         withCredentials: true,
         data: {
@@ -91,7 +91,7 @@ export const actions = {
   async sendPasswordResetEmail(_, { email }) {
     try {
       await this.$api.request({
-        url: '/v1/auth/password_reset/mails',
+        url: '/auth/password_reset/mails',
         method: 'post',
         data: {
           user: {
@@ -107,7 +107,7 @@ export const actions = {
   async resetPassword(_, { password, passwordConfirmation, token, id }) {
     try {
       await this.$api.request({
-        url: '/v1/auth/password_reset',
+        url: '/auth/password_reset',
         method: 'put',
         data: {
           user: {
@@ -126,7 +126,7 @@ export const actions = {
   async logout({ commit }) {
     await this.$api.request(
       {
-        url: '/v1/auth/auth_token',
+        url: '/auth/auth_token',
         method: 'delete',
         withCredentials: true,
       },
@@ -137,7 +137,7 @@ export const actions = {
   async deleteAccount({ commit }, { currentPassword }) {
     try {
       await this.$api.request({
-        url: '/v1/auth/user',
+        url: '/auth/user',
         method: 'delete',
         withCredentials: true,
         data: {

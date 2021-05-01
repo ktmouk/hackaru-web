@@ -4,7 +4,7 @@ export const actions = {
   async fetch({ dispatch }) {
     const res = await this.$api.request(
       {
-        url: '/v1/oauth/authorized_applications',
+        url: '/oauth/authorized_applications',
         withCredentials: true,
       },
       { root: true }
@@ -19,7 +19,7 @@ export const actions = {
     try {
       dispatch('entities/delete', { name: 'applications', id }, { root: true });
       await this.$api.request({
-        url: `/v1/oauth/authorized_applications/${id}`,
+        url: `/oauth/authorized_applications/${id}`,
         method: 'delete',
         withCredentials: true,
       });

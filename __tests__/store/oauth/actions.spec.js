@@ -16,7 +16,7 @@ describe('Actions', () => {
     const commit = jest.fn();
 
     beforeEach(async () => {
-      mock.onGet('/v1/oauth/authorize').replyOnce(200, {
+      mock.onGet('/oauth/authorize').replyOnce(200, {
         clientId: 'clientId',
         redirectUri: 'urn:ietf:wg:oauth:2.0:oob',
         state: 'state',
@@ -60,7 +60,7 @@ describe('Actions', () => {
     const commit = jest.fn();
 
     beforeEach(async () => {
-      mock.onGet('/v1/oauth/authorize').replyOnce(200, {
+      mock.onGet('/oauth/authorize').replyOnce(200, {
         status: 'redirect',
         redirect_uri: 'http://example.com?code=code&state=state',
       });
@@ -94,7 +94,7 @@ describe('Actions', () => {
 
     beforeEach(async () => {
       mock
-        .onPost('/v1/oauth/authorize', {
+        .onPost('/oauth/authorize', {
           clientId: 'clientId',
           responseType: 'code',
           redirectUri: 'http://example.com',
@@ -134,7 +134,7 @@ describe('Actions', () => {
 
     beforeEach(async () => {
       mock
-        .onDelete('/v1/oauth/authorize', {
+        .onDelete('/oauth/authorize', {
           clientId: 'clientId',
           responseType: 'code',
           redirectUri: 'http://example.com',

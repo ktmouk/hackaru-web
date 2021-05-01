@@ -15,7 +15,7 @@ describe('Actions', () => {
     const dispatch = jest.fn();
 
     beforeEach(() => {
-      mock.onGet('/v1/oauth/authorized_applications').replyOnce(200, {});
+      mock.onGet('/oauth/authorized_applications').replyOnce(200, {});
       actions.fetch({ dispatch });
     });
 
@@ -35,7 +35,7 @@ describe('Actions', () => {
     const dispatch = jest.fn();
 
     beforeEach(() => {
-      mock.onDelete('/v1/oauth/authorized_applications/1').replyOnce(200);
+      mock.onDelete('/oauth/authorized_applications/1').replyOnce(200);
       actions.delete({ dispatch }, 1);
     });
 

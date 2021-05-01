@@ -12,7 +12,7 @@ export const actions = {
   async fetchClient({ commit }, payload) {
     const res = await this.$api.request(
       {
-        url: '/v1/oauth/authorize',
+        url: '/oauth/authorize',
         withCredentials: true,
         params: {
           clientId: payload.clientId,
@@ -35,7 +35,7 @@ export const actions = {
   async allow({ commit }, payload) {
     const res = await this.$api.request(
       {
-        url: '/v1/oauth/authorize',
+        url: '/oauth/authorize',
         withCredentials: true,
         method: 'post',
         data: {
@@ -54,7 +54,7 @@ export const actions = {
   },
   async deny({ commit }, payload) {
     const res = await this.$api.request({
-      url: '/v1/oauth/authorize',
+      url: '/oauth/authorize',
       withCredentials: true,
       method: 'delete',
       validateStatus(status) {
